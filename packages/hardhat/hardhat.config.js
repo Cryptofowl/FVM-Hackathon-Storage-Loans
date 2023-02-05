@@ -24,7 +24,7 @@ const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 //
 // Select the network you want to deploy to here:
 //
-const defaultNetwork = "localhost";
+const defaultNetwork = "hyperspace";
 
 function mnemonic() {
   try {
@@ -277,11 +277,18 @@ module.exports = {
         mnemonic: mnemonic(),
       },
     },
+    hyperspace: {
+      chainId: 3141,
+      url: "https://api.hyperspace.node.glif.io/rpc/v1",
+      accounts: {
+        mnemonic: mnemonic(),
+      },
+    },
   },
   solidity: {
     compilers: [
       {
-        version: "0.8.4",
+        version: "0.8.17",
         settings: {
           optimizer: {
             enabled: true,
@@ -289,15 +296,15 @@ module.exports = {
           },
         },
       },
-      {
-        version: "0.6.7",
-        settings: {
-          optimizer: {
-            enabled: true,
-            runs: 200,
-          },
-        },
-      },
+      // {
+      //   version: "0.6.7",
+      //   settings: {
+      //     optimizer: {
+      //       enabled: true,
+      //       runs: 200,
+      //     },
+      //   },
+      // },
     ],
   },
   ovm: {

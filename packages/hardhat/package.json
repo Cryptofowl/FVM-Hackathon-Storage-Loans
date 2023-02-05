@@ -21,6 +21,7 @@
     "@typechain/ethers-v5": "^10.1.0",
     "@typechain/hardhat": "^6.1.2",
     "@types/mocha": "^9.1.0",
+    "@zondax/filecoin-solidity": "^0.5.0-beta.1",
     "chai": "^4.2.0",
     "chalk": "^4.1.0",
     "dotenv": "^8.2.0",

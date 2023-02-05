@@ -239,6 +239,11 @@ export const NETWORKS = {
     blockExplorer: "https://moonbeam-explorer.netlify.app/",
     rpcUrl: "http://127.0.0.1:9933",
   },
+  hyperspace: {
+    name: "hyperspace",
+    chainId: 3141,
+    rpcUrl: "https://api.hyperspace.node.glif.io/rpc/v1",
+  },
 };
 
 export const NETWORK = chainId => {
