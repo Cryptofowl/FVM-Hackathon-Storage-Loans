@@ -10,6 +10,8 @@ require("hardhat-deploy");
 
 const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+
 /*
       📡 This is where you configure your deploy configuration for 🏗 scaffold-eth
 
@@ -280,9 +282,7 @@ module.exports = {
     hyperspace: {
       chainId: 3141,
       url: "https://api.hyperspace.node.glif.io/rpc/v1",
-      accounts: {
-        mnemonic: mnemonic(),
-      },
+        accounts: [PRIVATE_KEY],
     },
   },
   solidity: {

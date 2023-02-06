@@ -3,7 +3,6 @@ require("hardhat-deploy-ethers")
 
 const { networkConfig } = require("../helper-hardhat-config")
 
-console.log(ethers.provider)
 const provider = new ethers.providers.JsonRpcProvider('https://api.hyperspace.node.glif.io/rpc/v1');
 const private_key = network.config.accounts[0]
 const wallet = new ethers.Wallet(private_key, provider)
