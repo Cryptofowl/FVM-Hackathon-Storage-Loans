@@ -11,7 +11,10 @@ contract BeneficiaryEscrow {
 
     address immutable factory;
     address immutable public lender;
+    address public minerID;
     address public borrower;
+
+    bytes pieceCID;
 
     bool public underwritten;
     bool public active;
@@ -23,7 +26,7 @@ contract BeneficiaryEscrow {
     uint256 immutable public delay = 604800;
     uint256 public loanAmount;
 
-    constructor(address _lender, uint256 _duration, uint256 _size, bool _underwritten, address _borrower) payable {
+    constructor(address _lender, uint256 _duration, uint256 _size, string _label, bool _underwritten, address _borrower) payable {
         lender = _lender;
         duration = _duration;
         size = _size;
@@ -34,6 +37,20 @@ contract BeneficiaryEscrow {
         if (underwritten == true) {
             borrower = _borrower;
         }
+        MarketAPI.publishStorageDeals(MarketTypes.PublishStorageDealsParams(CommonTypes.DealProposal(
+            pieceCID,
+            size,
+            false,
+            abi.encodePacked(lender),
+            abi.encodePacked(borrower),
+            _label,
+            int64(block.timestamp),
+            int64(block.timestamp + duration),
+            BigInt(bytes(0)),
+            BigInt(bytes(0)),
+            BigInt(bytes(0)))
+            )
+        );
     }
     
     modifier isUnderwritten() {
